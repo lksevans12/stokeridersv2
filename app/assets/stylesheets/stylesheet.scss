@@ -17,6 +17,7 @@ header[role="banner"] {
 
 a.dropdown-item{
   display:block;
+  color:white;
 }
 
 .navbar {
@@ -26,12 +27,13 @@ a.dropdown-item{
 #navbar-primary.navbar-default {
   background-color:black;
   border: none;
-  .navbar-nav { 
+  .navbar-nav, .fa fa-caret-down { 
     width: 100%;
     text-align: center;
     > li {
       display: inline-block;
       float: none;
+      text-transform:uppercase;
     > a{
       text-transform:uppercase;
       color:white
@@ -42,9 +44,30 @@ a.dropdown-item{
     }
     }
   }
-
-
 }
+
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu{
+  background-color:black;
+}
+
+.dropdown-menu>li>a{
+  color:white;
+}
+
+.navbar-nav>li>a.social-media-links{
+    font-size:2em;
+    padding:3px;
+  }
+
+  .navbar-nav>li>a.social-media-links-1{
+    padding:3px;
+  }
+
+
 
 @media all and (max-width: 1200px) { /* screen size until 1200px */
 
@@ -98,9 +121,6 @@ a.dropdown-item{
       display:block !important;
   }
 
- 
-
-  
 }
 
 @media all and (max-width: 500px) { /* screen size until 500px */

@@ -6,6 +6,7 @@
 	<%= stylesheet_link_tag    'application', media: 'all' %>
 	<%= javascript_include_tag 'application' %>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<%= csrf_meta_tags %>
@@ -33,22 +34,32 @@
 				<div class="collapse navbar-collapse" id="navbar-primary-collapse">
 					<ul class="nav navbar-nav">
 						<li><%= link_to 'Services', kiteboarding_lessons_path, :class => "nav-link-list" %></li>
-						<li class="nav-item dropdown"><%= link_to 'Gear', kiteboarding_gear_path, :class => "nav-link dropdown-toggle", :class =>"nav-link-list", :id => "navbarDropdownMenuLink", "data-toggle" => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="#">Kites</a>
-								<a class="dropdown-item" href="#">Boards</a>
-								<a class="dropdown-item" href="#">Accessories</a>
-							</div>
-						</li>
-						<li><%= link_to 'Locations', kiteboarding_locations_path, :class => "nav-link-list" %></li>
+						<li class="nav-item dropdown">
+								<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gear<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								 <li><a href="/kiteboarding-gear/#kites">Kites</a></li>
+            	<li><a href="/kiteboarding-gear/#boards">Boards</a></li>
+            	<li><a href="/kiteboarding-gear/#accessories">Accessories</a></li>
+            	<li role="separator" class="divider"></li>
+            	<li><a href="#">All gear</a></li>
+								</ul>
+							</li>
+						<li class="nav-item dropdown">
+								<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locations<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+								 <li><a href="/kiteboarding-locations/indianakiteboardinglessons">Indiana Kiteboarding Lessons</a></li>
+            	<li><a href="/kiteboarding-locations/michigankiteboardinglessons">Michigan Kiteboarding Lessons</a></li>
+            	<li><a href="/kiteboarding-locations/chicagokiteboardinglessons">Chicago Kiteboarding Lessons</a></li>
+								</ul>
+							</li>
 						<li><%= link_to 'Blog', stoke_riders_kiteboarding_blog_path, :class => "nav-link-list" %></li>
 						<li><%= link_to 'Gallery', kiteboarding_gallery_path, :class => "nav-link-list" %></li>
 						<li><%= link_to 'About us', about_stoke_riders_path, :class => "nav-link-list" %></li>
 						<li><%= link_to 'Contact', about_stoke_riders_path, :class => "nav-link-list" %></li>
-						<li><%= link_to image_tag('fb.png'),"https://www.facebook.com/Stokeriders/", :target => "_blank", :id => "nav-link-list", :class => 'social-media-links'%></li>
-						<li><%= link_to image_tag('mail.png'),"mailto:info@stokeriders.com?Subject=Kiteboarding%20Lessons", :target => "_top", :id => "nav-link-list", :class => 'social-media-links' %></li>
-						<li><%= link_to image_tag('phone.png'),"tel:312-952-0888", :target => "_top", :id => "nav-link-list", :class => 'social-media-links' %></li>
-						<li><%= link_to 'Tel : 312-952-0888', "tel: 312-952-0888", :id => "nav-link-list", :class => 'social-media-links' =%> </li>
+						<li><a href="https://www.facebook.com/Stokeriders/" target="_blank" class="social-media-links" id="nav-link-list"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+						<li><a href="mailto:info@stokeriders.com?Subject=Kiteboarding%20Lessons" target="_top" class="social-media-links" id="nav-link-list"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+						<li><a href="tel: 312-952-0888" class="social-media-links" id="nav-link-list"><i class="fa fa-phone-square" aria-hidden="true"></i></a></li>
+						<li><a href="tel: 312-952-0888" class="social-media-links-1" id="nav-link-list">Tel : 312-952-0888</a></li>
 
 
 
