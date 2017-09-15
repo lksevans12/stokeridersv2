@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
+  get '/kiteboarding-lessons'=> 'welcome#index'
+  get '/kiteboarding-gear' => 'gear#index'
+  get '/kiteboarding-locations' => 'locations#index'
+  get '/kiteboarding-gallery' => 'gallery#index'
+  get '/stoke-riders-kiteboarding-blog' => 'blog#index'
+  get '/about-stoke-riders' => 'about#index'
+  get '/contact' => 'contact#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

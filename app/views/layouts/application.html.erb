@@ -1,78 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeachMeSomething</title>
-  <meta name=viewport content="width=device-width,initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <%= csrf_meta_tags %>
+	<title>Chicago Kiteboarding: Stoke Riders</title>
+	<meta name=viewport content="width=device-width,initial-scale=1">
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<%= csrf_meta_tags %>
 
-  
+
 
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'Teach Me Something', root_path, class: "navbar-brand" %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'All Posts', posts_path %></li>
-        <li><%= link_to 'New Post', new_post_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><% @tags.each do |tag| %>
-                <%= link_to tag.title, tags_path(tag.title) %>
-                <% end %></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <li><%= link_to "Welcome #{current_user.username}", user_path(current_user.id) if current_user %></li>
-          <li><%= link_to 'Sign out', logout_path %></li>
-        <% else %>
-        <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
-        <% end %>
-
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(type) %>">
-    <button class="close" data-dismiss="alert">×</button>
-    <%= message %>
-  </div>
-<% end %>
+	<header role="banner">
+		<div class="container">
+			<%= link_to image_tag('stoke.png', :class => "img-responsive", :id => "logo-main"), root_path %>
+		</div>
+		<nav id="navbar-primary" class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-primary-collapse">
+					<ul class="nav navbar-nav">
+						<li><%= link_to 'Services', kiteboarding_lessons_path, :class => "nav-link-list" %></li>
+						<li class="nav-item dropdown"><%= link_to 'Gear', kiteboarding_gear_path, :class => "nav-link dropdown-toggle", :class =>"nav-link-list", :id => "navbarDropdownMenuLink", "data-toggle" => "dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false"%>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="#">Kites</a>
+								<a class="dropdown-item" href="#">Boards</a>
+								<a class="dropdown-item" href="#">Accessories</a>
+							</div>
+						</li>
+						<li><%= link_to 'Locations', kiteboarding_locations_path, :class => "nav-link-list" %></li>
+						<li><%= link_to 'Blog', stoke_riders_kiteboarding_blog_path, :class => "nav-link-list" %></li>
+						<li><%= link_to 'Gallery', kiteboarding_gallery_path, :class => "nav-link-list" %></li>
+						<li><%= link_to 'About us', about_stoke_riders_path, :class => "nav-link-list" %></li>
+						<li><%= link_to 'Contact', about_stoke_riders_path, :class => "nav-link-list" %></li>
+						<li><%= link_to image_tag('fb.png'),"https://www.facebook.com/Stokeriders/", :target => "_blank", :id => "nav-link-list", :class => 'social-media-links'%></li>
+						<li><%= link_to image_tag('mail.png'),"mailto:info@stokeriders.com?Subject=Kiteboarding%20Lessons", :target => "_top", :id => "nav-link-list", :class => 'social-media-links' %></li>
+						<li><%= link_to image_tag('phone.png'),"tel:312-952-0888", :target => "_top", :id => "nav-link-list", :class => 'social-media-links' %></li>
+						<li><%= link_to 'Tel : 312-952-0888', "tel: 312-952-0888", :id => "nav-link-list", :class => 'social-media-links' =%> </li>
 
 
-  
-<%= yield %>
+
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</header><!-- header role="banner" -->
+
+	<% flash.each do |type, message| %>
+	<div class="alert <%= bootstrap_class_for(type) %>">
+		<button class="close" data-dismiss="alert">×</button>
+		<%= message %>
+	</div>
+	<% end %>
+
+
+
+	<%= yield %>
+
+	<footer>
+	</footer>
 
 
 </body>
