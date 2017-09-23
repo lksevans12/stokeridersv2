@@ -1,0 +1,18 @@
+<div class = "container">
+	<div class = "posts-blank">
+		<% if @posts.blank? %>
+		<h4>There are no posts containing the term <%= params[:search] %>.</h4>
+		<%= link_to ('Back to blog'), stoke_riders_kiteboarding_blog_path %>
+
+		<% end %>
+	</div>
+
+
+
+	<% @posts.each do |post| %>
+	<ul>
+		<li class="posts-index-link"><%= link_to (post.title), post_path(post.id) %></li>
+	</ul>
+	<% end %>
+
+</div>

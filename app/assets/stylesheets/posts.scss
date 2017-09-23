@@ -1,3 +1,18 @@
+
+
 .blog-title{
 	text-align:center;
+}
+
+.posts-index-link{
+	list-style-type: none;
+	text-transform:uppercase;
+}
+
+.posts-index-link a{
+	color:black;
+}
+
+.posts-index-link a:hover{
+	text-decoration:underline;
 }

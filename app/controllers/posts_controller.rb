@@ -2,8 +2,13 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:new,:create, :edit, :update]
 
   def index
-    @posts = Post.all.paginate(:page => params[:page], :per_page => 15)
+  @posts = Post.all
+  if params[:search]
+    @posts = Post.search(params[:search]).order("created_at DESC")
+  else
+    @posts = Post.all
   end
+end
 
   def new 
     @post = Post.new
@@ -38,11 +43,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 
   def update_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 
 end
