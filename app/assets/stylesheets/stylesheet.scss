@@ -67,6 +67,21 @@ li.dropdown:hover > .dropdown-menu {
     padding:3px;
   }
 
+footer{
+  background-color:#545454;
+  padding:30px;
+}
+
+footer li{
+  display:inline-block;
+  text-transform:uppercase;
+  list-style:none;
+  padding: 5px;
+}
+
+footer li a{
+  color:white;
+}
 
 
 @media all and (max-width: 1200px) { /* screen size until 1200px */
@@ -121,9 +136,20 @@ li.dropdown:hover > .dropdown-menu {
       display:block !important;
   }
 
+  
+
+}
+
+@media all and (max-width: 768px) {
+
+
 }
 
 @media all and (max-width: 500px) { /* screen size until 500px */
+#logo-main{
+    width:50%;
+    height:50%;
+  }
 }
 
 

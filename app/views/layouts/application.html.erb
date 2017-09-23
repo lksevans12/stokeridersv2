@@ -18,6 +18,7 @@
 
 	<header role="banner">
 		<div class="container">
+		<% unless controller_name == "admin" %>
 			<%= link_to image_tag('stoke.png', :class => "img-responsive", :id => "logo-main"), root_path %>
 		</div>
 		<nav id="navbar-primary" class="navbar navbar-default" role="navigation">
@@ -35,24 +36,29 @@
 					<ul class="nav navbar-nav">
 						<li><%= link_to 'Services', kiteboarding_lessons_path, :class => "nav-link-list" %></li>
 						<li class="nav-item dropdown">
-								<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gear<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-								 <li><a href="/kiteboarding-gear/#kites">Kites</a></li>
-            	<li><a href="/kiteboarding-gear/#boards">Boards</a></li>
-            	<li><a href="/kiteboarding-gear/#accessories">Accessories</a></li>
-            	<li role="separator" class="divider"></li>
-            	<li><a href="#">All gear</a></li>
-								</ul>
-							</li>
+							<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gear<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/kiteboarding-gear/#kites">Kites</a></li>
+								<li><a href="/kiteboarding-gear/#boards">Boards</a></li>
+								<li><a href="/kiteboarding-gear/#accessories">Accessories</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">All gear</a></li>
+							</ul>
+						</li>
 						<li class="nav-item dropdown">
-								<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locations<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-								 <li><a href="/kiteboarding-locations/indianakiteboardinglessons">Indiana Kiteboarding Lessons</a></li>
-            	<li><a href="/kiteboarding-locations/michigankiteboardinglessons">Michigan Kiteboarding Lessons</a></li>
-            	<li><a href="/kiteboarding-locations/chicagokiteboardinglessons">Chicago Kiteboarding Lessons</a></li>
-								</ul>
-							</li>
-						<li><%= link_to 'Blog', stoke_riders_kiteboarding_blog_path, :class => "nav-link-list" %></li>
+							<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locations<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/kiteboarding-locations/indianakiteboardinglessons">Indiana Kiteboarding Lessons</a></li>
+								<li><a href="/kiteboarding-locations/michigankiteboardinglessons">Michigan Kiteboarding Lessons</a></li>
+								<li><a href="/kiteboarding-locations/chicagokiteboardinglessons">Chicago Kiteboarding Lessons</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a href="" class="nav-link dropdown-toggle nav-link-list" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/stoke-riders-kiteboarding-blog">Tyler's Blog</a></li>
+							</ul>
+						</li>
 						<li><%= link_to 'Gallery', kiteboarding_gallery_path, :class => "nav-link-list" %></li>
 						<li><%= link_to 'About us', about_stoke_riders_path, :class => "nav-link-list" %></li>
 						<li><%= link_to 'Contact', about_stoke_riders_path, :class => "nav-link-list" %></li>
@@ -68,19 +74,33 @@
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header><!-- header role="banner" -->
-
-	<% flash.each do |type, message| %>
-	<div class="alert <%= bootstrap_class_for(type) %>">
-		<button class="close" data-dismiss="alert">×</button>
-		<%= message %>
-	</div>
 	<% end %>
+
 
 
 
 	<%= yield %>
 
+
+	<% unless controller_name == "admin" %>
 	<footer>
+		<div class="container-fluid">
+			<div class="col-md-8 col-xs-12">
+				<%= link_to image_tag('stoke.png', :class => "img-responsive pull-left", :id => "logo-main"), root_path %>
+			</div>
+			<div class="col-md-6 pull-left">
+			<li><%= link_to 'Contact', contact_path, :class => "footer-image" %></li>
+			<li><%= link_to 'FAQ', frequentlyaskedquestions_path, :class => "footer-image" %></li>
+			<li><%= link_to 'Admin', login_path, :class => "footer-image" %></li>
+			</div>
+
+			<div class="pull-right">
+		<% end %>
+
+
+
+			</div>
+		</div>
 	</footer>
 
 

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   resources :posts 
-  resources :users 
+  resources :users
+  resources :blogs, :only => [:edit]
+
 
   get '/tags/:title' => 'tags#show', as: 'tags'
 
@@ -16,9 +18,15 @@ Rails.application.routes.draw do
   get '/kiteboarding-gear' => 'gear#index'
   get '/kiteboarding-locations' => 'locations#index'
   get '/kiteboarding-gallery' => 'gallery#index'
-  get '/stoke-riders-kiteboarding-blog' => 'blog#index'
-  get '/about-stoke-riders' => 'about#index'
+  get '/stoke-riders-kiteboarding-blog' => 'blogs#index'
   get '/contact' => 'contact#index'
+  get '/frequentlyaskedquestions' => 'faq#index'
+  get '/admin-panel' => 'admin#index'
+  get '/blog' => 'blog#index'
+  get '/about-stoke-riders' => 'about#index'
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -14,8 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post.id)
     else
-      flash[:danger] = @post.errors.full_messages
-      redirect_to new_post_path
+      "no"
     end
   end
 
@@ -27,16 +26,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update_attributes(update_params)
       redirect_to post_path(@post)
-      flash[:success] = "Post updated"
     else
       redirect_to edit_post_path(@post)
-      flash[:danger] = @post.errors.full_messages
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    @find_tag = EntryTag.find_by(post_id: @post)
   end
 
   private
