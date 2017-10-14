@@ -1,0 +1,38 @@
+<div class = "container">
+	<div class="row" id="pwd-container">
+		<div class="col-md-4"></div>
+
+		<div class="col-md-4">
+			<section class="login-form">
+				<div id = "old-user">
+					<%= form_tag sessions_path, role: "login" do %>
+					<img src="assets/stoke.png" class="img-responsive" alt="" />
+
+					<div class="row">
+						<%= label_tag :email, nil, class: "col-xs-12" %>
+						<%= email_field_tag :email,nil, class: "col-xs-12 form-control input-lg" %>
+					</div>
+
+					<div class="row">
+						<%= label_tag :password,nil, class: "col-xs-12" %>
+						<%= password_field_tag :password,nil, class: "col-xs-12 form-control input-lg" %>
+					</div>
+
+					<div class="row">
+						<%= submit_tag 'Log in', class: "btn btn-lg btn-primary btn-block" %>
+					</div>
+
+					<p> Please contact admin for access. </p>
+
+					<% end %>
+
+					
+				</div>
+			</section>  
+		</div>
+
+		<div class="col-md-4"></div>
+
+
+	</div>
+</div>

@@ -1,0 +1,155 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x:hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color:black;
+}
+
+header[role="banner"] {
+  #logo-main {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+a.dropdown-item{
+  display:block;
+  color:white;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+#navbar-primary.navbar-default {
+  background-color:black;
+  border: none;
+  .navbar-nav, .fa fa-caret-down { 
+    width: 100%;
+    text-align: center;
+    > li {
+      display: inline-block;
+      float: none;
+      text-transform:uppercase;
+    > a{
+      text-transform:uppercase;
+      color:white
+    }
+    >a:hover{
+    text-decoration:underline;
+    color:white;
+    }
+    }
+  }
+}
+
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu{
+  background-color:black;
+}
+
+.dropdown-menu>li>a{
+  color:white;
+}
+
+.navbar-nav>li>a.social-media-links{
+    font-size:2em;
+    padding:3px;
+  }
+
+  .navbar-nav>li>a.social-media-links-1{
+    padding:3px;
+  }
+
+footer{
+  background-color:#545454;
+  padding:30px;
+}
+
+footer li{
+  display:inline-block;
+  text-transform:uppercase;
+  list-style:none;
+  padding: 5px;
+}
+
+footer li a{
+  color:white;
+}
+
+
+@media all and (max-width: 1200px) { /* screen size until 1200px */
+
+}
+
+@media (max-width: 1024px) {
+
+  li a.nav-link-list{
+   
+  }
+
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+       display:block !important;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display:block !important;
+      font-size:80%;
+  }
+  .navbar-nav>li>a.social-media-links{
+    display:none !important;
+  }
+
+  .collapse.in{
+      display:block !important;
+  }
+
+  
+
+}
+
+@media all and (max-width: 768px) {
+
+
+}
+
+@media all and (max-width: 500px) { /* screen size until 500px */
+#logo-main{
+    width:50%;
+    height:50%;
+  }
+}
+
+

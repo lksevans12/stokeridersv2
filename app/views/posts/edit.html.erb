@@ -1,0 +1,45 @@
+<div class = "container">
+
+  <% if @post.errors.any?  %>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+        <li> <%= "#{msg}" %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <h3> Edit post </h3>
+
+  <div id = "edit-post">
+    <%= form_for @post do |f| %>
+      <div class="row">
+        <div class="form-group">
+          <%= f.label 'What are you teaching about today?*', class: "col-xs-8"%>
+          <%= f.text_field :title, class: "col-xs-10 col-sm-10 col-md-10" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <%= f.label 'Edit body', class: "col-xs-12"  %>
+          <%= f.text_area :body, cols: "140", rows: "60", id: "field", class: "col-xs-10 col-sm-10 col-md-10"%>
+        </div>
+      </div>
+
+
+      <div class="row">
+      <%= f.file_field :image %>
+      </div>
+
+
+
+      <div class="row">
+        <div class="form-group">
+        <%= f.submit :submit, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>

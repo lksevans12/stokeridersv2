@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def search_options
-    
+  def is_admin?
+    logged_in? ? current_user.admin : false
   end
 end

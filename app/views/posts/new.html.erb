@@ -1,0 +1,45 @@
+<div class = "container">
+  <% if @current_user.admin == true%>
+
+
+    <div class = "col-xs-12 col-s-12 col-md-12">
+      <div id = "post-instr">
+      </div>
+    </div>
+
+
+    <div id = "new-post">
+      <% form_for @post, html: { multipart: true } do |f| %>
+      <div class="row">
+        <div class="form-group">
+          <%= f.label 'What are you teaching about today?*', class: "col-xs-7"%>
+          <%= f.text_field :title, class: "col-xs-10 col-sm-10 col-md-10" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <%= f.label "*", class: "col-xs-12" %><br>
+          <%= f.text_field :body, class: "col-xs-10 col-sm-10 col-md-10" %>
+        </div>
+      </div>
+
+          <div class="row">
+        <%= f.label 'Please upload a cover photo for your post.', class: "col-xs-12" %>
+        <%= f.file_field :image, class: "jumbo-photo col-xs-10 col-sm-10 col-md-10" %>
+      </div>
+
+
+
+      <div class="row">
+        <div class="form-group">
+        <%= f.submit 'Create Post', class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  <% else %>
+    <h1> We're so glad your interested in posting, however, you MUST be a 'teacher' to submit! <%= link_to 'Edit your status to become a teacher!', edit_user_path(current_user.id) %>
+  <% end %>
+</div>

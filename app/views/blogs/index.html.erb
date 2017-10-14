@@ -1,0 +1,63 @@
+
+<div class ="container center">
+    <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+  <div class="col-md-10 col-sm-10 col-xs-8">
+    <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control"%>
+    </div>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-default btn-lg" %>
+    <% end %>
+  
+</div>
+
+
+<section class="publicaciones-blog-home">
+  <div class="container">
+    <div class="">
+      <h2>Kite<b>Boarding</b> 101</h2>
+      <div class="row-page row">
+        <div class="col-page col-sm-8 col-md-6">
+          <% @featured_post.each do |post| %>
+          <a href="/posts/<%= post.id %>" class="black fondo-publicacion-home">
+            <div class="img-publicacion-principal-home">
+              <img class="" src="<%= post.image.url %>">
+            </div>
+            <div class="contenido-publicacion-principal-home">
+              <h1>FEATURED POST:</h1>
+
+              <h1><%= post.title %></h1>
+
+            </div>
+            <div class="mascara-enlace-blog-home">
+              <span>Read More...</span>
+            </div>
+            <% end %>
+          </a>
+        </div>
+
+
+        <% @posts.each do |post| %>
+        <div class="col-page col-sm-4 col-md-3">
+          <a href="/posts/<%= post.id %>"  class="fondo-publicacion-home">
+            <div class="img-publicacion-home">
+              <img class="img-responsive" src="<%= post.image.url %>">
+            </div>
+            <div class="contenido-publicacion-home">
+              <h3><%= post.title %></h3>
+              <p class="body-post"> <%= post.body.truncate_words(7) %></p>
+            </div>
+            <div class="mascara-enlace-blog-home">
+              <span>Read More...</span>
+            </div>
+          </a>
+        </div>
+        <% end %>
+
+        <div class="col-page col-sm-4 col-md-3">
+          <a href="/posts" class="todas-las-publicaciones-home">
+            <span>VIEW ALL BLOG POSTS <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

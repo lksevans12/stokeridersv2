@@ -1,0 +1,8 @@
+
+	<div class="container">
+
+	<h1 class="blog-title"> <%= @post.title.upcase %> </h1>
+	<p> <%=@post.body %> </p>
+	<%= image_tag(@post.image.url, class: "img-rounded img-responsive") %>
+
+</div>
